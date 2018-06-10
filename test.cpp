@@ -15,6 +15,7 @@ The question:
 Author: Muhammad Fahmi Irfananda
 @2018
 */
+
 #include <iostream>
 #include <string.h>
 using namespace std;
@@ -181,7 +182,7 @@ int main(int argc, char** argv) {
 }
 
 /* DUMMY DATA
-Copy & paste the following to test the program
+Copy & paste the following dummy data to test the program
 
 fahmi
 28
@@ -202,4 +203,5 @@ oop
 etprof
 
 28
+
 */
