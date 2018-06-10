@@ -157,11 +157,11 @@ int main(int argc, char** argv) {
 
     deleteFirstMahasiswa(firstMhs, pHapusMhs);
     traversal(firstMhs);
-    cout << "deleted: " << pHapusMhs->npm;
+    printf("deleted mahasiswa: npm.%s\n", pHapusMhs->npm);
 
     deleteFirstMatkul(firstMhs, pHapusMatkul);
     traversal(firstMhs);
-    cout << "deleted: " << pHapusMatkul->nama; 
+    printf("deleted matkul: %s\n", pHapusMatkul->nama);
 }
 
 /* DUMMY DATA
@@ -183,5 +183,4 @@ oop
 90
 etprof
 
-28
 */
