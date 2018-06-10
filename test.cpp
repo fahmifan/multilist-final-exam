@@ -1,3 +1,20 @@
+/*
+Desctiption: This is the implementation of the multilist question in the final exam of
+Data Structure lab activity.
+The question: 
+    Buat lah multilist mata kuliah (mahasiswa dan matkul)
+    Sertakan fungsi-fungsi berikut:
+    - createElementMhs
+    - createElementMatkul
+    - insertFirstMahasiswa
+    - deleteFirstMahasiswa
+    - insertFirstMatkul
+    - deleteFirstMatkul
+    - traversalMhsMatkul
+    
+Author: Muhammad Fahmi Irfananda
+@2018
+*/
 #include <iostream>
 #include <string.h>
 using namespace std;
@@ -16,7 +33,6 @@ struct Mahasiswa {
 };
 typedef Mahasiswa* pMhs;
 
-// make a list
 typedef pMhs listMhs;
 
 void createElementMhs(pMhs& mhs) {
@@ -138,8 +154,8 @@ void traversal(listMhs first) {
 }
 
 int main(int argc, char** argv) {
-    pMhs pBaruMhs, pHapusMhs;
-    pMatkul pBaruMatkul, pHapusMatkul;
+    pMhs pBaruMhs, pHapusMhs = NULL;
+    pMatkul pBaruMatkul, pHapusMatkul = NULL;
     listMhs firstMhs = NULL;
 
     insertFirstMhs(firstMhs, pBaruMhs);
@@ -165,6 +181,8 @@ int main(int argc, char** argv) {
 }
 
 /* DUMMY DATA
+Copy & paste the following to test the program
+
 fahmi
 28
 irfan
@@ -183,4 +201,5 @@ oop
 90
 etprof
 
+28
 */
