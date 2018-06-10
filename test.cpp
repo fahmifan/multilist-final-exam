@@ -100,6 +100,7 @@ void deleteFirstMahasiswa(listMhs &first, pMhs &pHapus) {
     } else {
         pHapus = first;
         first = first->next;
+        pHapus->next = NULL;
     }
 }
 
@@ -124,6 +125,7 @@ void deleteFirstMatkul(listMhs &first, pMatkul &pHapus) {
         } else {
             pHapus = first;
             first = first->next;
+            pHapus->next = NULL;
         }
     }
 }
