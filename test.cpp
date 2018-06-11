@@ -130,7 +130,7 @@ void deleteFirstMatkul(listMhs &first, pMatkul &pHapus) {
     }
 }
 
-void traversal(listMhs first) {
+void traversalMhsMatkul(listMhs first) {
     listMhs trav = first;
     pMatkul travMatkul = NULL;
     int count = 1;
@@ -172,14 +172,14 @@ int main(int argc, char** argv) {
     insertFirstMatkul(firstMhs, pBaruMatkul);
 
     cout << "\nTraversal\n";
-    traversal(firstMhs);
+    traversalMhsMatkul(firstMhs);
 
     deleteFirstMahasiswa(firstMhs, pHapusMhs);
-    traversal(firstMhs);
+    traversalMhsMatkul(firstMhs);
     printf("deleted mahasiswa: npm.%s\n", pHapusMhs->npm);
 
     deleteFirstMatkul(firstMhs, pHapusMatkul);
-    traversal(firstMhs);
+    traversalMhsMatkul(firstMhs);
     printf("deleted matkul: %s\n", pHapusMatkul->nama);
 }
 
