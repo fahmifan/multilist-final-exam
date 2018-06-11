@@ -18,6 +18,8 @@ Author: Muhammad Fahmi Irfananda
 
 #include <iostream>
 #include <string.h>
+#include <unistd.h>
+
 using namespace std;
 
 struct Matkul {
@@ -156,54 +158,73 @@ void traversalMhsMatkul(listMhs first) {
     cout << endl;
 }
 
+// validate user menu choice
+bool checkPilihan(int pil, int max) {
+    return pil >= 1 && pil <=max;
+}
+
+void menu() {
+    cout << "Menu:\n";
+    cout << "1. Insert First Mahasiswa\n";
+    cout << "2. Insert First Matkul\n";
+    cout << "3. Delete First Mahasiswa\n";
+    cout << "4. Delete First Matkul\n";
+    cout << "5. Traversal Mahasiswa Matkul\n";
+    cout << "6. Exit\n";
+}
+
 int main(int argc, char** argv) {
     pMhs pBaruMhs, pHapusMhs = NULL;
     pMatkul pBaruMatkul, pHapusMatkul = NULL;
     listMhs firstMhs = NULL;
+    char dummy;
+    int pilihan = 1, maxAns = 6;
 
-    insertFirstMhs(firstMhs, pBaruMhs);
-    insertFirstMhs(firstMhs, pBaruMhs);
-    insertFirstMhs(firstMhs, pBaruMhs);
-    insertFirstMhs(firstMhs, pBaruMhs);
+    bool isAnsValide = true;
+    
+    do {
+        system("clear");
+        traversalMhsMatkul(firstMhs);
+        if(!isAnsValide) {
+            cout << "Pilihan is not valid\n";
+            cout << "It should (1-6)\n";
+        }
+        menu();
+        cout << "Input pilihan (1-6): "; cin >> pilihan;
+        isAnsValide = checkPilihan(pilihan, maxAns);
+        if(!isAnsValide) {
+            pilihan = 0;
+            system("clear");
+        }
+        switch(pilihan) {
+            case 0: break;
+            case 1:
+                insertFirstMhs(firstMhs, pBaruMhs);
+                traversalMhsMatkul(firstMhs);
+                break;
+            
+            case 2:
+                insertFirstMatkul(firstMhs, pBaruMatkul);
+                traversalMhsMatkul(firstMhs);
+                break;
+            
+            case 3:
+                deleteFirstMahasiswa(firstMhs, pHapusMhs);
+                traversalMhsMatkul(firstMhs);
+                break;
+            
+            case 4: 
+                deleteFirstMatkul(firstMhs, pHapusMatkul);
+                traversalMhsMatkul(firstMhs);
+                break;
+            
+            case 5:
+                traversalMhsMatkul(firstMhs);
+                break;
 
-    insertFirstMatkul(firstMhs, pBaruMatkul);
-    insertFirstMatkul(firstMhs, pBaruMatkul);
-    insertFirstMatkul(firstMhs, pBaruMatkul);
-    insertFirstMatkul(firstMhs, pBaruMatkul);
-
-    cout << "\nTraversal\n";
-    traversalMhsMatkul(firstMhs);
-
-    deleteFirstMahasiswa(firstMhs, pHapusMhs);
-    traversalMhsMatkul(firstMhs);
-    printf("deleted mahasiswa: npm.%s\n", pHapusMhs->npm);
-
-    deleteFirstMatkul(firstMhs, pHapusMatkul);
-    traversalMhsMatkul(firstMhs);
-    printf("deleted matkul: %s\n", pHapusMatkul->nama);
+            case 6:
+                pilihan = 6;
+                break; 
+        }
+    } while(pilihan != 6);
 }
-
-/* DUMMY DATA
-Copy & paste the following dummy data to test the program
-
-fahmi
-28
-irfan
-90
-junior
-33
-nabgar
-22
-
-28
-fisika
-33
-fisika
-28
-oop
-90
-etprof
-
-28
-
-*/
